@@ -1,0 +1,18 @@
+Go to any production box and run this command ::
+
+wget https://github.com/ajaypilaniyaap/uploads/raw/master/gor
+
+sudo su 
+
+./gor --input-raw :80 --http-allow-url="\/*-llpid-[0-9]+|\/v1\/mobile\/grid\/[0-9]+|\/v1\/g\/*|\/*-bclpid-[0-9]+-[0-9]+|\/*-glpid-[0-9]+|\/search|\/v2\/search|\/v3\/search|\/*-llpidV2-[0-9]+|\/v2\/mobile\/grid\/[0-9]+|\/v2\/g\/*|\/*-bclpidV2-[0-9]+-[0-9]+|\/*-glpidV2-[0-9]+|\/v1\/p\/*|\/v1\/mobile\/ads|\/v1\/mobile\/product\/[0-9]+|\/*-pdp|\/v2\/p\/*|\/v2\/mobile\/product\/[0-9]+|\/*-pdpV2"  --output-kafka-host="10.60.60.161:9092,10.60.56.140:9092,10.60.63.192:9092" --output-kafka-topic="catalog_replay" --output-kafka-json-format
+
+
+-----------------------------------------------
+
+Go to java box and run following command ::
+
+git clone https://github.com/ajaypilaniyaap/uploads.git
+
+cd /uploads/ExecutableTool
+
+java -jar COMPARATOR FILE
