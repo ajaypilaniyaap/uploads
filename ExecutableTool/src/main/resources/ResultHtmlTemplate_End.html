@@ -1,0 +1,119 @@
+						</ul>
+
+
+		<script>
+			function toggleDiv(id){
+				var element = document.getElementById(id);
+				console.log("display is : "+element.style.display);
+				if(element.style.display == "none"){
+					element.style.display="block";
+				}else{
+					element.style.display="none";
+				}
+			}
+			function handleRadioButtons(radio){
+				var id = radio.id;
+				if(id == "radio_pass"){
+					 document.querySelectorAll(".pass").forEach(function(ele){
+						 ele.style.display="list-item";
+					 });
+					document.querySelectorAll(".fail_c").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".fail_nc").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".exception").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+
+				}else if(id == "radio_fail_c"){
+					 document.querySelectorAll(".pass").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".fail_c").forEach(function(ele){
+						 ele.style.display="list-item";
+					 });
+					document.querySelectorAll(".fail_nc").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".exception").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+
+				}else if(id == "radio_fail_nc"){
+					 document.querySelectorAll(".pass").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".fail_nc").forEach(function(ele){
+						 ele.style.display="list-item";
+					 });
+					document.querySelectorAll(".fail_c").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".exception").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+
+				}else if(id == "radio_exception"){
+					document.querySelectorAll(".pass").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".fail_c").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".fail_nc").forEach(function(ele){
+						 ele.style.display="none";
+					 });
+					document.querySelectorAll(".exception").forEach(function(ele){
+						 ele.style.display="list-item";
+					 });
+
+				}else if(id == "radio_all"){
+					 document.querySelectorAll(".pass").forEach(function(ele){
+						 ele.style.display="list-item";
+					 });
+					document.querySelectorAll(".fail_c").forEach(function(ele){
+						 ele.style.display="list-item";
+					 });
+					document.querySelectorAll(".fail_nc").forEach(function(ele){
+						 ele.style.display="list-item";
+					 });
+					document.querySelectorAll(".exception").forEach(function(ele){
+						 ele.style.display="list-item";
+					 });
+				}
+			}
+			function populateStatusTable(count_total,count_pass,count_fail_c,count_fail_nc,count_exception){
+					var statusTable = document.getElementsByClassName('flat-table')[0];
+					console.log(statusTable);
+					statusTable.rows[1].cells[0].innerHTML=count_total;
+					statusTable.rows[1].cells[1].innerHTML=count_pass;
+					statusTable.rows[1].cells[2].innerHTML=count_fail_c;
+					statusTable.rows[1].cells[3].innerHTML=count_fail_nc;
+					statusTable.rows[1].cells[4].innerHTML=count_exception;
+			}
+			
+			function filterResults(){
+  				 var searchText = document.getElementsByName("searchResult")[0].value;
+				 if(searchText == "") { 
+					console.log("Nothing to Filter"); 
+					handleRadioButtons(document.getElementById("radio_all"));
+					return;
+				 }
+				 
+			        document.querySelectorAll(".text_url").forEach(function(ele){
+   					if(ele.innerText.includes(searchText)){
+               				ele.parentNode.parentNode.style.display="list-item";
+           			} else { 
+						ele.parentNode.parentNode.style.display="none";
+					}
+   				}); 
+			}
+
+			window.onload=function(){
+				populateStatusTable(${totalCount},${passCount},${failCount_c},${failCount_nc},${exceptionCount});
+			};       
+		</script>
+	</body>
+</html>
