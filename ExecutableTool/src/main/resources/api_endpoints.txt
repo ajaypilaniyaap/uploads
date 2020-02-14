@@ -1,0 +1,15 @@
+/v1/p/.*
+/v1/g/.*
+.*/llpid-.*
+.*/glpid-.*
+.*pdp.* 
+/v2/h/.* 
+/v2/mobile/flyouts.*
+/v1/mobile/product/hightlights.* 
+.*/images/.*.jpg
+/v2/products/similar/.* 
+/v1/c/.*
+/v1/mobile/getproductlist/.*
+/v1/mobile/grid/.*
+/v1/mobile/product/.* 
+/v1/mobile/.*

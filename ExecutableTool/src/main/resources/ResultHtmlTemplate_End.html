@@ -110,9 +110,38 @@
 					}
    				}); 
 			}
+			
+			 function populateResponseTimeTable(data){
+	                var res_sumarry_table = document.getElementsByClassName('response-time-summary-table')[0];
+	                var tr = document.createElement('tr');
+	                for(var i=0; i<data.length; i++){ 
+	                    var text = document.createTextNode(data[i]); 
+	                    var td =   document.createElement('td'); 
+	                    td.appendChild(text); 
+	                    tr.appendChild(td)
+	                }
+	                res_sumarry_table.appendChild(tr);
+	            }
+			 
+			 function formatCellsWithLatency(latency){
+					var res_summary_table = document.getElementsByClassName('response-time-summary-table')[0];
+					var rows = res_summary_table.rows;
+					for(var i=2; i<rows.length; i++){ 
+						var cell = rows[i].cells[2]; 
+						var value = parseFloat(cell.textContent); 
+						cell.style.color="black"; 
+						if(value <= latency){ 
+							cell.style.backgroundColor="green"; 
+						}  else {
+							cell.style.backgroundColor="red";
+						} 
+					}
+			}
 
 			window.onload=function(){
 				populateStatusTable(${totalCount},${passCount},${failCount_c},${failCount_nc},${exceptionCount});
+				${response-summary-table-method-calls}
+				formatCellsWithLatency(${average_difference_latency});
 			};       
 		</script>
 	</body>

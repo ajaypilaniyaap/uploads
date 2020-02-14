@@ -13,6 +13,8 @@ Go to java box and run following command ::
 
 git clone https://github.com/ajaypilaniyaap/uploads.git
 
+git pull origin master
+
 cd /uploads/ExecutableTool
 
 java -jar COMPARATOR FILE
