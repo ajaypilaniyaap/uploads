@@ -25,4 +25,4 @@ After shutting down COMPARATOR ::
 
 tar -czvf output.tar.gz output/
 
-scp -r ajay_24151@10.0.17.72:~/uploads/ExecutableTool/output.tar.gz .
+scp -r ajay_24151@10.60.31.175:~/uploads/ExecutableTool/output.tar.gz .
